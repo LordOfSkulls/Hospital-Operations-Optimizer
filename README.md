@@ -1,30 +1,65 @@
+# Hospital Operations Optimizer
+
+An AI-powered application to predict and optimize hospital operations using the Gemini API. Get real-time predictions for bed occupancy, ER wait times, and patient load.
+
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+## Features
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/temp/1
+- Real-time predictions for:
+  - Bed occupancy rates
+  - ER waiting times
+  - Emergency room patient load
+- Manual data input or file upload
+- AI-powered recommendations
+- Mock mode for testing without API key
+- Responsive dashboard UI
+- Dark/light mode support
 
 ## Run Locally
 
 **Prerequisites:** Node.js (LTS recommended)
 
 1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-   `npm install`
-
-2. Create a local environment file and set your Gemini API key. Copy `.env.example` to `.env.local` (or create `.env.local`) and set the value for `GEMINI_API_KEY`:
-
-   - Preferred env var: `GEMINI_API_KEY`
-   - The code also supports `API_KEY` as a fallback, but use `GEMINI_API_KEY` to be explicit.
+2. Configure environment:
+   - Copy `.env.example` to `.env.local`
+   - Set your Gemini API key:
+     ```
+     GEMINI_API_KEY=your_key_here
+     ```
+   - (Optional) Enable mock mode:
+     ```
+     MOCK_MODE=true
+     ```
 
 3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
 
-   `npm run dev`
+4. Open http://localhost:5173 in your browser
 
-4. Open the app in your browser at the URL printed by Vite (usually http://localhost:5173).
+## Environment Variables
 
-Note: The app calls the Google GenAI (Gemini) API via the `@google/genai` SDK. Make sure your key has the necessary permissions and quota.
+- `GEMINI_API_KEY` - Your Google Gemini API key (get it from [Google AI Studio](https://aistudio.google.com/app/apikey))
+- `MOCK_MODE` - Set to "true" to use mock data instead of real API calls (optional)
+
+## Tech Stack
+
+- React + TypeScript
+- Vite
+- Google Gemini API
+- Recharts for visualizations
+- Tailwind CSS
+
+## Development
+
+The app uses the Google GenAI SDK to interact with Gemini's API. Make sure your key has the necessary permissions and quota for production use.
+
+Mock mode is available for development - set `MOCK_MODE=true` in your `.env.local` to test the UI without making real API calls.
